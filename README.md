@@ -1,6 +1,6 @@
 # BITCOIN(BTC) Order Book Monitor
 
-This folder is composed of 3 applications, each as notebooks (*.ipynb) and scripts (*.py), found in their respective folders. They are described in detail below.
+This folder is composed of 4 applications, each as notebooks (*.ipynb) and scripts (*.py), found in their respective folders. They are described in detail below.
 crontabs jobs have been set up to run the applications scripts every hour. 
 
 ## Application I - "1.2-mick-recording_best_bid_ask"
@@ -16,6 +16,12 @@ This application will allow to store and build up a historical database of Bitco
 
 ## Application III - "2.2-mick-market_eye"
 Monitoring Bitcoin's price movement by comparing each hour's price to the day's open price. If a decrease in the current's price to open price is superior to 5%, an email is sent to interested parties.
+
+## Application IV - "3.0-mick-lob_analysis" (ONLY Jupyter Notebook `.ipynb` available)
+Analysing recorded orderbooks (obtained from Application III) for market-making profitability. The application finds each recorded hour's best bid and ask prices
+(`df2` best hourly bid/ask)
+The application also simulates a market-maker that continuously aggregate bids and asks from the executed trades until one side reaches 10 BTC. When this limit is reached, the market maker stops accumulating that side from the executed trades and only accumulate trades from the other side for the rest of the recorded hour.
+(`df9` market maker inventory)
 
 ## Plotting
 
